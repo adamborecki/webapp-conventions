@@ -1,2 +1,18 @@
 # webapp-conventions
-My personal style guide for web app and canvas deliverables — connect this repo so Claude builds to spec by default. 😎
+
+My personal standards for how I like web apps and canvas/artifact deliverables built. Connect
+this repo in a project (or add it as a Claude Code skill) so Claude builds to spec by default
+instead of re-guessing my preferences every session.
+
+**How to use it:** reference this repo's conventions when building web apps or canvas
+deliverables for Adam. In a Claude Code session, that means either pointing Claude at this repo
+and saying something like "follow my webapp-conventions repo," or — for automatic pickup — making
+this repo available as a skill (see [`SKILL.md`](./SKILL.md)) so Claude loads it on its own
+whenever a request looks like building a web app, canvas, or artifact deliverable.
+
+## Contents
+
+- [`SKILL.md`](./SKILL.md) — the skill definition; tells Claude when and how to use this repo
+- [`CONVENTIONS.md`](./CONVENTIONS.md) — the actual rules (structure, styling, components,
+  naming, canvas/artifact defaults). This is the file that matters most.
+- [`examples/`](./examples) — sample outputs I like, kept as reference material
