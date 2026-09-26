@@ -34,30 +34,41 @@ from the request, ask.
   canvas/visualizer, 44px+ touch targets, mobile-first layout.
 - For interactive lessons, default to the **Lessons / Playground / Quiz / Challenge** tab
   structure (see Component Patterns) rather than inventing a new information architecture.
-- No build step, ever, unless the deliverable has genuinely outgrown a static page (e.g. a full
-  slide deck). Vanilla HTML/CSS/JS, deployed straight to GitHub Pages. If a change needs a
-  bundler, it's probably the wrong change for this track.
+- License: MIT is fine — these are teaching tools/code, not standalone creative work.
+- The actual requirement is that it deploys cleanly to GitHub Pages as a static site — not that
+  it was *built* with zero tooling. Vanilla HTML/CSS/JS with no build step is usually the
+  fastest way to get there, but a build step (Vite, Astro, etc.) is a legitimate choice when it
+  genuinely helps (a full slide deck, a more complex app) — don't add one for its own sake, but
+  don't avoid one on principle either.
 
 ### 🎨 Personal / Creative Projects
 
-- Keeping versioned iteration files alongside `index.html` (`spirographV1.html`, `V2.html`, ...,
-  or a `gen2_claudeV1.html`/`gen2_geminiV1.html` per model) is fine and expected — it's how past
-  exploration gets documented; don't feel pressure to rely on git history alone or clean these up.
+- Versioned iteration files (`spirographV1.html`, `V2.html`, ..., or a `gen2_claudeV1.html` per
+  model tried) are worth keeping around breaking changes or big redesigns — not for every save,
+  just the moments worth being able to come back to.
 - Looser accessibility/mobile bar — polish for the actual audience, which is often just Adam.
-- No Canvas receipt/export pattern needed.
+- No Canvas-specific receipt/export needed, but consider `localStorage` to persist progress
+  across sessions, and an export or email option if sharing/saving results matters for the piece.
+- Same privacy sanity check as School projects, just scaled down: don't commit secrets, API
+  keys, or other people's private info — it's still a public GitHub repo even if it's "just for
+  me."
+- License: MIT is a software license for reusable code — for art-forward pieces, a Creative
+  Commons license (e.g. CC BY-NC-ND) usually fits the intent better. Ask which the piece calls
+  for rather than defaulting to MIT here.
 - More palette freedom — dark-academia (gold accent + serif), stark minimal (pure black/white),
-  or whatever fits the piece's mood. The palette families below are defaults, not limits.
+  or whatever fits the piece's mood. The palette families below are starting points, not limits.
 
 ## General Principles
 
-- Default to zero dependencies: vanilla HTML/CSS/JS with no build step, no bundler, no framework
-  — unless the project has clearly outgrown a single file (see "graduating" below).
+- The actual requirement is a clean deploy to GitHub Pages as a static site — not "zero build
+  tooling" as an end in itself. Default to vanilla HTML/CSS/JS with no build step, since that's
+  usually the simplest way to get there, but a build step (Vite, Astro, Next.js) is a legitimate
+  choice once a project genuinely needs routing, TypeScript, or a component library. Don't reach
+  for a framework preemptively, and don't avoid one out of principle either — pick whichever
+  gets to a working GitHub Pages site with the least fuss.
 - Ship a fully self-contained deliverable: one HTML file with inline `<style>`/`<script>`, or a
-  small hand-written set of `css/` and `js/` files loaded via plain `<script>`/`<link>` tags.
-  Never require `npm install` to run the shipped app.
-- It's fine to "graduate" to a real build (Vite+React, Astro, Next.js) once a project genuinely
-  needs routing, TypeScript, or a component library — but that's the exception, not the default.
-  Don't reach for a framework preemptively.
+  small hand-written set of `css/` and `js/` files loaded via plain `<script>`/`<link>` tags,
+  unless it's graduated to a real build per above.
 - Every interactive tool needs a working reset/restart control.
 - Prefer real browser APIs over wrapper libraries — e.g. the native Web Audio API directly,
   rather than Tone.js, unless the app also needs music notation rendering (see Libraries to
@@ -72,7 +83,8 @@ from the request, ask.
   `visualizer.js`).
 - Use ES modules (`type="module"`, `import`/`export`) once split across multiple JS files; plain
   `<script>` tags are fine for true single-file apps.
-- Ship an MIT `LICENSE` ("Copyright (c) \<year\> Adam Borecki").
+- Ship a `LICENSE` — MIT by default for code-forward/School projects; see the licensing note in
+  the Personal/Creative track above for when Creative Commons fits better instead.
 - Add a `.github/workflows/static.yml` GitHub Pages deploy workflow (checkout → configure-pages
   → upload-pages-artifact → deploy-pages) so the repo deploys itself.
 - Add a `.claude/launch.json` for local dev, defaulting to `python3 -m http.server <port>` — no
@@ -91,14 +103,15 @@ from the request, ask.
 - Default to dark-mode-first. Use `@media (prefers-color-scheme: dark)` (or `light`) for the
   override rather than shipping a manual light/dark toggle button, unless the app specifically
   calls for one.
-- Two go-to palette families — pick whichever matches the deliverable's tone (Personal projects
-  can go further afield, see above):
+- These two palette families are recurring patterns already in use, not a mandatory pick-one —
+  plenty of the reference repos deviate. Reach for one when it fits, not by default:
   - **Dark lab/tool palette**: near-black navy background (`#0a0a10`–`#101825` range), a single
     bright cyan/teal accent (`#5dd2ff`, `#66d9ff`, `#7ce0ff`, `#45e8c0`), a warm secondary accent
-    (`#ff8a3d`, `#ffab4e`).
+    (`#ff8a3d`, `#ffab4e`). The most common default when nothing else is specified.
   - **Warm editorial/hub palette**: cream/paper background (`#f6f1e9`–`#f7f2ea`), dark ink text
     (`#192431`/`#19221e`), teal or forest-green accent (`#0f766e`, `#14503d`), warm orange
-    secondary (`#c66a1d`).
+    secondary (`#c66a1d`). Good for landing/hub pages and long-form lesson content — not a
+    requirement for those either, just what's shown up most.
 - Always define semantic status colors: `--success`/`--ok` (green), `--warning`/`--warn`
   (amber), `--danger`/`--error` (red) — keep names consistent within a project.
 - For hover/glow states, pair a solid accent with an alpha or `-dim`/`-glow` variant (e.g.
