@@ -21,6 +21,9 @@ builds things the way Adam likes by default, instead of re-guessing preferences 
 ## Files in this repo
 
 - `CONVENTIONS.md` — the actual rules. This is the file that matters.
+- `BRANCH_PREVIEWS.md` — how branch previews on GitHub Pages work and how to set them up. Read it
+  when deploying, creating branches, or adding a Pages repo.
+- `templates/branch-previews/` — files to copy into a repo for branch previews.
 - `examples/` — sample outputs Adam likes, dropped in as loose reference material (no fixed
   structure yet — Adam is still figuring out what belongs here).
 - `README.md` — human-facing overview of the repo and how to wire it up in other projects.

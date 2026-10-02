@@ -12,6 +12,17 @@ rules, not suggestions, unless Adam's own request in the moment explicitly overr
 
 <!-- fill in specifics here -->
 
+## Hosting, Branches and Previews
+
+- Host on GitHub Pages, deployed by GitHub Actions. `main` is production at the site root.
+- Never experiment on `main`. Put work on a branch starting with `claude/`, `skin/`, `feature/` or
+  `preview/`; it is published at `/<repo>/branch/<slug>/`, with a list at `/<repo>/branch/`.
+- Set up previews in every Pages repo from `templates/branch-previews/`, and follow the rules in
+  [`BRANCH_PREVIEWS.md`](./BRANCH_PREVIEWS.md): relative URLs only, a preview banner, saved data
+  isolated per preview, and only `main` may deploy.
+- Merge to `main` when a change is ready for real users (additive changes that leave existing
+  behaviour identical may merge anytime), then delete the branch.
+
 ## Styling Conventions
 
 ### Colors

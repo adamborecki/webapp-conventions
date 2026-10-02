@@ -15,4 +15,8 @@ whenever a request looks like building a web app, canvas, or artifact deliverabl
 - [`SKILL.md`](./SKILL.md) — the skill definition; tells Claude when and how to use this repo
 - [`CONVENTIONS.md`](./CONVENTIONS.md) — the actual rules (structure, styling, components,
   naming, canvas/artifact defaults). This is the file that matters most.
+- [`BRANCH_PREVIEWS.md`](./BRANCH_PREVIEWS.md) — per-branch preview URLs on GitHub Pages: how
+  it works, setup for a new repo, and working with collaborators
+- [`templates/branch-previews/`](./templates/branch-previews) — the workflow, build script and
+  app module to copy into a repo
 - [`examples/`](./examples) — sample outputs I like, kept as reference material
